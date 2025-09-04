@@ -1,7 +1,14 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
-public class Endereço {
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
 
+import java.util.Map;
+
+@Node
+public class Endereco {
+    @Id
+    private String id;
     private String logradouro;
     private String numero;
     private String bairro;
@@ -10,10 +17,10 @@ public class Endereço {
     private String cep;
     private String complemento;
 
-    public Endereço() {
+    public Endereco() {
     }
 
-    public Endereço(String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
+    public Endereco(String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
@@ -21,6 +28,16 @@ public class Endereço {
         this.estado = estado;
         this.cep = cep;
         this.complemento = complemento;
+    }
+
+    public Map<String, Object> toCriarNovoEnderecoMap() {
+        return Map.of("logradouro", logradouro,
+                "numero", numero,
+                "bairro", bairro,
+                "cidade", cidade,
+                "estado", estado,
+                "cep", cep,
+                "complemento", complemento);
     }
 
     public String getLogradouro() {

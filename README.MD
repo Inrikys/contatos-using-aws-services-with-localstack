@@ -30,7 +30,7 @@ Um **contato** deve possuir:
     - Deve ser possível exportar contatos em formato **CSV** ou **Parquet** para um bucket **S3**.
 
 3. **Processamento assíncrono com SQS**
-    - Quando um contato for criado, deve ser enviada uma mensagem para uma fila **SQS** para execução de processos adicionais (exemplo: enriquecimento de dados do endereço).
+    - Quando um contato for criado, deve ser enviada uma mensagem para uma fila **SQS** para execução de processos adicionais (exemplo: enriquecimento de dados do endereco).
 
 4. **Publicação de eventos com SNS**
     - Sempre que um contato for atualizado ou removido, um evento deve ser publicado em um tópico **SNS** para notificar outros sistemas interessados.

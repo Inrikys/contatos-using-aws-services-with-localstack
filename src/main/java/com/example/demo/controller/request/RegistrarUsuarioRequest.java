@@ -1,16 +1,25 @@
 package com.example.demo.controller.request;
 
+import com.example.demo.entity.Endereco;
+import com.example.demo.entity.Telefone;
+import com.example.demo.entity.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 
-public class AdicionarUsuarioRequest {
+public class RegistrarUsuarioRequest {
 
     @JsonProperty("nome_completo")
     private String nome;
 
     @JsonProperty("email")
     private String email;
+
+    @JsonProperty("senha")
+    private String senha;
+
+    @JsonProperty("documento")
+    private String documento;
 
     @JsonProperty("data_nascimento")
     private LocalDate dataNascimento;
@@ -33,12 +42,25 @@ public class AdicionarUsuarioRequest {
     @JsonProperty("complemento")
     private String complemento;
 
+    public Usuario toUsuario(Endereco endereco) {
+        Telefone telefone = new Telefone(ddi, ddd, numero);
+        return new Usuario(null, nome, senha, documento, email, telefone, dataNascimento, endereco);
+    }
+
     public String getNome() {
         return nome;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getDocumento() {
+        return documento;
     }
 
     public LocalDate getDataNascimento() {

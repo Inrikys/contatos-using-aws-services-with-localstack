@@ -1,9 +1,9 @@
 package com.example.demo.client;
 
-import com.example.demo.model.Endereço;
+import com.example.demo.entity.Endereco;
 
 public interface CepClient {
 
-    Endereço obterEnderecoByCep(String cep);
+    Endereco obterEnderecoByCep(String cep);
 
 }

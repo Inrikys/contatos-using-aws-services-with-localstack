@@ -1,10 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Usuario;
+import com.example.demo.entity.Usuario;
+import org.springframework.data.neo4j.repository.Neo4jRepository;
 
-public interface UsuarioRepository {
+public interface UsuarioRepository extends Neo4jRepository<Usuario, String> {
 
-    Usuario criarUsuario(Usuario usuario);
-    Usuario consultarUsuarioByEmail(String email);
 
 }
