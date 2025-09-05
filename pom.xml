@@ -60,6 +60,14 @@
 			<version>4.3.6.0</version>
 		</dependency>
 
+		<!-- Lambda -->
+
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>lambda</artifactId>
+			<version>2.20.30</version> <!-- use a mais recente -->
+		</dependency>
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

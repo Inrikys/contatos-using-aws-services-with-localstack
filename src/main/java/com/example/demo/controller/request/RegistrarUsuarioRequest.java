@@ -6,6 +6,7 @@ import com.example.demo.entity.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class RegistrarUsuarioRequest {
 
@@ -43,8 +44,9 @@ public class RegistrarUsuarioRequest {
     private String complemento;
 
     public Usuario toUsuario(Endereco endereco) {
-        Telefone telefone = new Telefone(ddi, ddd, numero);
-        return new Usuario(null, nome, senha, documento, email, telefone, dataNascimento, endereco);
+        endereco.setId(UUID.randomUUID().toString());
+        Telefone telefone = new Telefone(UUID.randomUUID().toString(), ddi, ddd, numero);
+        return new Usuario(UUID.randomUUID().toString(), nome, senha, documento, email, telefone, dataNascimento, endereco);
     }
 
     public String getNome() {

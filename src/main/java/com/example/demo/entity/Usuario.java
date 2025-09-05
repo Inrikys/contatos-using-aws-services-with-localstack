@@ -1,12 +1,12 @@
 package com.example.demo.entity;
 
+import com.example.demo.controller.response.ObterUsuarioResponse;
 import com.example.demo.controller.response.RegistrarUsuarioResponse;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 @Node
 public class Usuario {
@@ -36,16 +36,12 @@ public class Usuario {
         this.endereco = endereco;
     }
 
-    public RegistrarUsuarioResponse toRegistrarUsuarioResponse() {
-        return new RegistrarUsuarioResponse(id, nome, email);
+    public ObterUsuarioResponse toObterUsuarioResponse() {
+        return new ObterUsuarioResponse(id, nome, documento,email, telefone.toObterUsuarioTelefoneResponse(), dataNascimento, endereco.toObterUsuarioEnderecoResponse());
     }
 
-    public Map<String, Object> toCriarNovoUsuarioMap() {
-        return Map.of("nome", nome,
-                "senha", senha,
-                "documento", documento,
-                "email", email,
-                "dataNascimento", dataNascimento.toString());
+    public RegistrarUsuarioResponse toRegistrarUsuarioResponse() {
+        return new RegistrarUsuarioResponse(id, nome, email);
     }
 
     public String getId() {
@@ -79,4 +75,5 @@ public class Usuario {
     public Endereco getEndereco() {
         return endereco;
     }
+
 }

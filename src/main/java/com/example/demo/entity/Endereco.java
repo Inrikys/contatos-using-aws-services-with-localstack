@@ -1,9 +1,8 @@
 package com.example.demo.entity;
 
+import com.example.demo.controller.response.ObterUsuarioEnderecoResponse;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
-
-import java.util.Map;
 
 @Node
 public class Endereco {
@@ -20,7 +19,8 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
+    public Endereco(String id, String logradouro, String numero, String bairro, String cidade, String estado, String cep, String complemento) {
+        this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
@@ -30,14 +30,12 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    public Map<String, Object> toCriarNovoEnderecoMap() {
-        return Map.of("logradouro", logradouro,
-                "numero", numero,
-                "bairro", bairro,
-                "cidade", cidade,
-                "estado", estado,
-                "cep", cep,
-                "complemento", complemento);
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getLogradouro() {
@@ -66,5 +64,9 @@ public class Endereco {
 
     public String getComplemento() {
         return complemento;
+    }
+
+    public ObterUsuarioEnderecoResponse toObterUsuarioEnderecoResponse() {
+        return new ObterUsuarioEnderecoResponse(id, logradouro, numero, bairro, cidade, estado, cep, complemento);
     }
 }
