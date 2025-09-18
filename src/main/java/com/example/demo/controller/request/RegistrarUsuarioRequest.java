@@ -46,7 +46,7 @@ public class RegistrarUsuarioRequest {
     public Usuario toUsuario(Endereco endereco) {
         endereco.setId(UUID.randomUUID().toString());
         Telefone telefone = new Telefone(UUID.randomUUID().toString(), ddi, ddd, numero);
-        return new Usuario(UUID.randomUUID().toString(), nome, senha, documento, email, telefone, dataNascimento, endereco);
+        return new Usuario(UUID.randomUUID().toString(), nome, senha, documento, email, telefone, dataNascimento, endereco, null);
     }
 
     public String getNome() {

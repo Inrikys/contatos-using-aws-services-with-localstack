@@ -17,7 +17,7 @@ public class CepClientImpl implements CepClient {
     @Override
     public Endereco obterEnderecoByCep(String cep) {
 
-        String lambdaResponse = lambdaService.invokeLambda("cepclient", "09990080");
+        String lambdaResponse = lambdaService.invokeLambda("buscar-endereco-cep", "09990080");
 
         return new Endereco(null, "Teste", "123", "teste", "teste", "teste", "09990080", "teste");
     }

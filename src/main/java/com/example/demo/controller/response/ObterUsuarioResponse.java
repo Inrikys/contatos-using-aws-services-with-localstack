@@ -3,6 +3,7 @@ package com.example.demo.controller.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class ObterUsuarioResponse {
 
@@ -27,10 +28,13 @@ public class ObterUsuarioResponse {
     @JsonProperty("endereco")
     private ObterUsuarioEnderecoResponse endereco;
 
+    @JsonProperty("amigos")
+    private Set<ObterUsuarioAmigoResponse> amigos;
+
     public ObterUsuarioResponse() {
     }
 
-    public ObterUsuarioResponse(String id, String nome, String documento, String email, ObterUsuarioTelefoneResponse telefone, LocalDate dataNascimento, ObterUsuarioEnderecoResponse endereco) {
+    public ObterUsuarioResponse(String id, String nome, String documento, String email, ObterUsuarioTelefoneResponse telefone, LocalDate dataNascimento, ObterUsuarioEnderecoResponse endereco, Set<ObterUsuarioAmigoResponse> amigos) {
         this.id = id;
         this.nome = nome;
         this.documento = documento;
@@ -38,6 +42,7 @@ public class ObterUsuarioResponse {
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
+        this.amigos = amigos;
     }
 
     public String getId() {

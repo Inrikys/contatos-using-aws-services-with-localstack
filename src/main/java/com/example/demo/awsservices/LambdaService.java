@@ -23,10 +23,8 @@ public class LambdaService {
                 .payload(SdkBytes.fromString(payload, StandardCharsets.UTF_8))
                 .build();
 
-        // Chama a Lambda
         InvokeResponse response = lambdaClient.invoke(request);
 
-        // Pega resposta como String
         return response.payload().asUtf8String();
     }
 }

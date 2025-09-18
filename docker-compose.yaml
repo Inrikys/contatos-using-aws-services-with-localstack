@@ -14,6 +14,18 @@ services:
     networks:
       - net
     command: neo4j
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+      - "4510-4559:4510-4559"
+    environment:
+      - SERVICES=s3,sqs,lambda,glue,sns
+      - DEFAULT_REGION=us-east-1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - net
 
 networks:
   net:
